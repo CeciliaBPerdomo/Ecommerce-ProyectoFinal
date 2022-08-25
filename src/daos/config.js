@@ -3,7 +3,7 @@ const configMongo = require('../../config/configMongo')
 const productosDao = require('./productosDAOMongo')
 const mongoose = require('mongoose')
 const configDB = require('../../config/configBD')
-//const productosDAOMongo = require('./productosDAOMongo')
+const productosDAOMongo = require('./productosDAOMongo')
 
 console.log("Persistencia: ", process.env.PERSISTENCIA)
 

@@ -1,4 +1,4 @@
-const productoBaseDAO = require('./config')
+//const productoBaseDAO = require('./config')
 //const mongo = require('mongo')
 const mongoose = require('mongoose')
 const basicMongoDb = require('../../config/configMongo')
@@ -14,16 +14,13 @@ const schema = new mongoose.Schema({
     timestamp: { type: String }
 })
 
-const model = mongoose.model('productos', schema)
+//const model = mongoose.model('productos', schema)
 
 class productosDAOMongo extends basicMongoDb {
     constructor(connection) {
         super(connection)
+        this.coleccion = mongoose.model('productos', schema)
     } 
-/*
-    constructor(nombreColeccion, schema) {  
-        this.coleccion = mongoose.model(nombreColeccion, schema)
-    */
 
     listarProductos = async () => {
         try {

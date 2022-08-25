@@ -3,7 +3,7 @@ const productosDAOMongo = require('../daos/productosDAOMongo')
 
 class productosFactoryDAO {
     static get() {
-        return new productosDAOMongo()
+        return new productosDAOMongo
     }
 }
 
