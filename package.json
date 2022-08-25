@@ -1,0 +1,30 @@
+{
+  "name": "ecommerce-proyectofinal",
+  "version": "1.0.0",
+  "description": "Proyecto final E-Commerce BackEnd",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CeciliaBPerdomo/Ecommerce-ProyectoFinal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CeciliaBPerdomo/Ecommerce-ProyectoFinal/issues"
+  },
+  "homepage": "https://github.com/CeciliaBPerdomo/Ecommerce-ProyectoFinal#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^6.5.2",
+    "nodemon": "^2.0.19",
+    "path": "^0.12.7",
+    "yargs": "^17.5.1"
+  }
+}
