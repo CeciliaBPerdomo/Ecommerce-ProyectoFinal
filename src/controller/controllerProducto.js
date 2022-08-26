@@ -1,12 +1,12 @@
 const apiProductos = require('../api/productos')
 
-class ProductosControlador { 
+class ProductosControlador{ 
     constructor() {
         this.apiProductos = new apiProductos()
     }
 
     // Listar productos
-    listarProductos = async (req, res) => {
+    listarProductos = async(req, res) => {
         try {
             let productos = await this.apiProductos.listarProductos()
             res.send(productos)

@@ -1,14 +1,14 @@
 const productosFactoryDAO = require('../daos/productosFactory')
 
 class apiProductos {
-    constructor() {
+    constructor(){
         this.productosDAO = productosFactoryDAO.get()
     }
 
-    async listarProductos () {
+    async listarProductos(){
         try { 
             let productos = await this.productosDAO.listarProductos()
-            res.send(productos)
+            return productos
         } catch (error) {
             console.log('Error al listar los productos (en API): ', error)
         }

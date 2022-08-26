@@ -14,19 +14,16 @@ const schema = new mongoose.Schema({
     timestamp: { type: String }
 })
 
-//const model = mongoose.model('productos', schema)
+const model = mongoose.model('productos', schema)
 
 class productosDAOMongo extends basicMongoDb {
     constructor(connection) {
         super(connection)
-        this.coleccion = mongoose.model('productos', schema)
     } 
 
     listarProductos = async () => {
         try {
-            let productos = await this.coleccion.find()
-            return productos
-            console.log(productos)
+            return await model.find({})
         } catch (error) {
             console.log('Error al listar productos (DAO): ', error)
         }

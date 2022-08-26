@@ -24,7 +24,7 @@ switch (process.env.PERSISTENCIA) {
         break
 }
 
-module.exports = { objProductosDao }
+module.exports = objProductosDao
 
 
 /*class Productos extends configMongo {
