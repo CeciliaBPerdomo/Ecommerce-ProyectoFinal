@@ -8,8 +8,11 @@ const productosDAOMongo = require('./productosDAOMongo')
 console.log("Persistencia: ", process.env.PERSISTENCIA)
 
 const db = async () => {
-    return await mongoose.connect(config.mongoDB.url, config.mongoDB.options)
-    console.log('db')
+    try {
+        await mongoose.connect(configDB.mongoDB.url, configDB.mongoDB.options)
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 //let objProductosDAO = {}  
@@ -25,20 +28,3 @@ switch (process.env.PERSISTENCIA) {
 }
 
 module.exports = objProductosDao
-
-
-/*class Productos extends configMongo {
-    constructor(connection) {
-        super(connection)
-    }
-
-    listarProductos = async () => { 
-        try {
-            return await model.find({})
-        } catch(error) {
-            console.log('Error al listar productos (DAO): ', error)
-        }
-    }
-}
-
-module.exports = Productos*/

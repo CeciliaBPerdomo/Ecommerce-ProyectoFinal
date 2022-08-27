@@ -6,7 +6,6 @@ class basicMongoDb {
         if (!process.env.MONGO_CONNECT) {
             this.connect = connection
             process.env.MONGO_CONNECT = true
-            console.log(this.connect)
         }
     }
 }

@@ -1,5 +1,10 @@
 /* Entrega final E-commerce*/
-console.log('E-commerce: Cecilia Perdomo')
+console.log('  ')
+console.log('---------------------------------')
+console.log('Proyecto final - Backend')
+console.log('E-commerce: by Cecilia Perdomo')
+console.log('---------------------------------')
+console.log('  ')
 
 const express = require('express')
 const cors = require('cors')
@@ -20,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 
 /* Productos */ 
 const productoRouter = new productoRoutes()
-app.use('/productos', productoRouter.start())
+app.use('/productos',  productoRouter.start())
 
 /* ----------------------------------------------------------- */ 
 /*                     SERVER LISTEN                           */
