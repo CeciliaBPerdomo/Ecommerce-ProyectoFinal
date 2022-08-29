@@ -1,7 +1,7 @@
 const productosFactoryDAO = require('../daos/productosFactory')
 
 class apiProductos {
-    constructor(){
+    constructor() {
         this.productosDAO = productosFactoryDAO.get()
     }
 
@@ -16,9 +16,9 @@ class apiProductos {
     }
 
     // Listar producto por codigo
-    async listarProductoPorCodigo(codigo){
+    async listarProductoPorId(id){
         try { 
-            let producto = await this.productosDAO.listarProductoPorCodigo(codigo)
+            let producto = await this.productosDAO.listarProductoPorId(id)
             return producto
         } catch (error) {
             console.log('Error al listar el producto por codigo (en API): ', error)
@@ -42,6 +42,26 @@ class apiProductos {
             return producto
         } catch (error) {
             console.log('Error al borrar el producto por id (en API): ', error)
+        }
+    }
+
+    // Borrar todos los productos
+    async borrarProductos() {
+        try {
+            let producto = await this.productosDAO.borrarProductos()
+            return producto
+        } catch(error) {
+            console.log('Error al borrar todos los productos API): ', error)
+        }
+    }
+
+    // Actualizar producto
+    async actualizarProducto(id, productoModif) {
+        try {
+            let producto = await this.productosDAO.actualizarProducto(id, productoModif)
+            return producto
+        } catch(error){
+            console.log('Error al actualizar el producto (API): ', error)
         }
     }
 }

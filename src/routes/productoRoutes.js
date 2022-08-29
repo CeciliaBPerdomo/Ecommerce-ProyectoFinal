@@ -22,18 +22,30 @@ class RouterProducto {
         })
 
         //Listar producto por codigo
-        router.get('/:codigo', async (req, res) => {
-            const codigo = req.params.codigo
-            const prod = await this.controllerProducto.listarProductoPorCodigo(codigo)
+        router.get('/:id', async (req, res) => {
+            const id = req.params.id
+            const prod = await this.controllerProducto.listarProductoPorId(id)
             res.json(prod)
         })
-
 
         //Borrar producto por id
         router.delete('/:id', async (req, res) => {
             const id = req.params.id
-            console.log(id)
             const prod = await this.controllerProducto.borrarProductoPorId(id)
+            res.json('Producto eliminado')
+        })
+
+        //Borrar todos los productos
+        router.delete('/', async (req, res) => {
+            const prod = await this.controllerProducto.borrarProductos()
+            res.json('Todos los productos han sido borrados!')
+        })
+
+        // Actualizar producto
+        router.put('/:id', async(req, res) => {
+            const id = req.params.id
+            const producto = req.body 
+            const prod = await this.controllerProducto.actualizarProducto(id, producto)
             res.json(prod)
         })
 

@@ -1,15 +1,18 @@
 /* Entrega final E-commerce*/
 console.log('  ')
-console.log('---------------------------------')
-console.log('Proyecto final - Backend')
-console.log('E-commerce: by Cecilia Perdomo')
-console.log('---------------------------------')
+console.log('----------------------------------')
+console.log('     Proyecto final - Backend')
+console.log('  E-commerce: by Cecilia Perdomo')
+console.log('----------------------------------')
 console.log('  ')
 
 const express = require('express')
 const cors = require('cors')
 require('dotenv').config()
+
+/* Routes */
 const productoRoutes = require('./src/routes/productoRoutes')
+const carritoRoutes = require('./src/routes/carritoRoutes')
 
 const config = require('./config/config')
 const app = express()
@@ -26,6 +29,11 @@ app.use(express.urlencoded({ extended: true }));
 /* Productos */ 
 const productoRouter = new productoRoutes()
 app.use('/productos',  productoRouter.start())
+
+
+/* Carritos */
+const carritoRouter = new carritoRoutes()
+app.use('/carrito', carritoRouter.start())
 
 /* ----------------------------------------------------------- */ 
 /*                     SERVER LISTEN                           */

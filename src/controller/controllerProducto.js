@@ -16,9 +16,9 @@ class ProductosControlador{
     }
 
     //Listar producto por codigo
-    listarProductoPorCodigo = async(codigo) => {
+    listarProductoPorId = async(id) => {
         try {
-            let producto = await this.apiProductos.listarProductoPorCodigo(codigo)
+            let producto = await this.apiProductos.listarProductoPorId(id)
             return producto
         } catch (error) {
             console.log('Error al listar los productos (Controller): ', error)
@@ -42,6 +42,26 @@ class ProductosControlador{
             return producto
         } catch (error) {
             console.log('Error al borrar producto por id (Controller): ', error)
+        }
+    }
+
+    //Borrar producto por id
+    borrarProductos = async() => {
+        try {
+            let producto = await this.apiProductos.borrarProductos()
+            return producto
+        } catch (error) {
+            console.log('Error al borrar todos los productos (Controller): ', error)
+        }
+    }
+
+    // Actualizar producto
+    actualizarProducto = async(id, productoModif) => {
+        try {
+            let producto = await this.apiProductos.actualizarProducto(id, productoModif)
+            return producto
+        } catch(error){ 
+            console.log('Error al actualizar el producto (Controller): ', error)
         }
     }
 }
