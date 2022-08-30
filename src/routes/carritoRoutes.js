@@ -12,7 +12,6 @@ class RouterCarrito {
         // Nuevo carrito 
         router.post('/nuevoCarrito', async(req, res) => {
             const nuevoCarrito = await this.controllerCarrito.crearCarrito()
-            console.log('Carrito creado correctamente')
             res.json(nuevoCarrito)
         })
 
@@ -21,7 +20,8 @@ class RouterCarrito {
             const idCarrito = req.params.id
             const producto = req.body
             await this.controllerCarrito.agregarProducto(idCarrito, producto)
-            console.log('Producto agregado correctamente al carrito')
+            
+            // Muestra el carrito actualizado 
             const carritoActualizado = await this.controllerCarrito.mostrarCarritoPorId(idCarrito)
             res.json(carritoActualizado)
         })
@@ -44,9 +44,26 @@ class RouterCarrito {
             const idCarrito = req.params.idCarrito
             const idProducto = req.params.idProducto
             await this.controllerCarrito.borrarProductoEnCarrito(idCarrito, idProducto) 
+
             // Muestra el carrito actualizado
             const carritoActualizado = await this.controllerCarrito.mostrarCarritoPorId(idCarrito)
             res.json(carritoActualizado)
+        })
+
+        //Finalizar compra con id de carrito y envio de mensaje
+        router.put('/finalizarCompra/:idCarrito', async (req, res) => {
+            // Envia mail de la compra
+            const mail = req.body.mail
+            await this.controllerCarrito.envioMail(mail)
+
+            //Envia sms
+            const celular = req.body.celular
+            //await this.controllerCarrito.envioSMS(celular)
+
+            //Borra el carrito
+            const idCarrito = req.params.idCarrito
+            await this.controllerCarrito.borrarCarritoPorId(idCarrito)
+            res.json('Compra finalizada')
         })
     
         return router

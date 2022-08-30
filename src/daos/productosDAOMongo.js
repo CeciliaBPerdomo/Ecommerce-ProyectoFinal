@@ -64,7 +64,6 @@ class productosDAOMongo extends basicMongoDb {
     borrarProductoPorId = async (id) => {
         try {
             await model.deleteOne({ _id: id })
-            console.log('Producto borrado con exito')
         } catch(error) {
             console.log('Error al borrar producto por id (DAO): ', error)
         }
@@ -74,7 +73,6 @@ class productosDAOMongo extends basicMongoDb {
     borrarProductos = async () => {
         try {
             const resultado = await model.deleteMany({})
-            console.log('Productos borrados con exito')
             return resultado
         } catch (error) {
             console.log('Error al borrar todos los productos(DAO): ', error)

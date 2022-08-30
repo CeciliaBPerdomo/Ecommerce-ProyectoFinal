@@ -19,7 +19,6 @@ class CarritosControlador {
     agregarProducto = async (idCarrito, producto) => {
         try {
             let nuevoProducto = await this.apiCarrito.agregarProducto(idCarrito, producto)
-            console.log('Se guardo el producto correctamente en el carrito.')
             return nuevoProducto
         } catch (error) {
             console.log('Error al guardar el producto en el carrito (Controller): ', error)
@@ -53,6 +52,32 @@ class CarritosControlador {
             return carrito
         } catch (error){
             console.log('Error al borrar producto en carrito (Controller): ', error)   
+        }
+    }
+
+    // Borrar carrito por id
+    borrarCarritoPorId = async (idCarrito) => {
+        try {
+            await this.apiCarrito.borrarCarritoPorId(idCarrito)
+        } catch (error) {
+            console.log('Error al borrar carrito por id (Controller): ', error)
+        }
+    }
+
+    // Envio de mail de confirmacion de compra
+    envioMail = async (mail) => {
+        try {
+            await this.apiCarrito.envioMail(mail)
+        } catch(error) {
+            console.log('Error al enviar correo (Controller): ', error)
+        }
+    }
+
+    envioSMS = async (celular) => {
+        try {
+            await this.apiCarrito.envioSMS(celular)
+        } catch (error) {
+            console.log('Error al enviar SMS (Controller): ', error)
         }
     }
 }

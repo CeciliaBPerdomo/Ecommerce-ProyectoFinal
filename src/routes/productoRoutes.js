@@ -37,7 +37,7 @@ class RouterProducto {
 
         //Borrar todos los productos
         router.delete('/', async (req, res) => {
-            const prod = await this.controllerProducto.borrarProductos()
+            await this.controllerProducto.borrarProductos()
             res.json('Todos los productos han sido borrados!')
         })
 

@@ -50,7 +50,6 @@ class carritoDAOMongo extends basicMongoDb {
                 } 
                 const nuevoCarrito = new model(carrito)
                 await nuevoCarrito.save()
-                console.log('Nuevo carrito (en DAO) creado con exito')
                 return nuevoCarrito
             } else {
                 const carrito = {
@@ -60,7 +59,6 @@ class carritoDAOMongo extends basicMongoDb {
                 }
                 const nuevoCarrito = new model(carrito)
                 await nuevoCarrito.save()
-                console.log('Nuevo carrito (en DAO) creado con exito')
                 return nuevoCarrito 
             }
         } catch (error){
@@ -71,7 +69,6 @@ class carritoDAOMongo extends basicMongoDb {
     todosLosCarritos = async () => {
         try {
             let carritos = await model.find({})
-            console.log('Carritos (DAO) listados con exito')
             return carritos
         } catch (error) {
             console.log('Error al ver los carritos (DAO): ', error)
@@ -88,6 +85,7 @@ class carritoDAOMongo extends basicMongoDb {
                 const msg = 'No existe el carrito'
                 return msg
             }
+            //return carrito
         } catch (error) { 
             console.log('Error al ver el carrito por id (DAO): ', error)
         }
@@ -116,6 +114,14 @@ class carritoDAOMongo extends basicMongoDb {
             }
         } catch (error) {
             console.log('Error al borrar producto en el carrito (DAO): ', error)
+        }
+    }
+
+    borrarCarritoPorId = async(idCarrito) => {
+        try {
+            await model.deleteOne({ id: idCarrito })
+        } catch (error){
+            console.log('Error al borrar el carrito (DAO): ', error)
         }
     }
 }
