@@ -58,7 +58,7 @@ class RouterCarrito {
 
             //Envia sms
             const celular = req.body.celular
-            //await this.controllerCarrito.envioSMS(celular)
+            await this.controllerCarrito.envioSMS(celular)
 
             //Borra el carrito
             const idCarrito = req.params.idCarrito

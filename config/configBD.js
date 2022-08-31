@@ -1,6 +1,8 @@
+const dotenv = require('dotenv')
+
 const configDB = {
     mongoDB: {
-        url: 'mongodb://localhost:27017',
+        url: process.env.MONGO_URL,
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true

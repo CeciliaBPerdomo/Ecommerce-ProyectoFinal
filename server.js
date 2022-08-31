@@ -13,6 +13,7 @@ require('dotenv').config()
 /* Routes */
 const productoRoutes = require('./src/routes/productoRoutes')
 const carritoRoutes = require('./src/routes/carritoRoutes')
+const authRoutes = require('./src/routes/authRoutes')
 
 const config = require('./config/config')
 const app = express()
@@ -25,6 +26,10 @@ app.use(express.urlencoded({ extended: true }));
 /* ----------------------------------------------------------- */ 
 /*                     MANEJO DE RUTAS                         */
 /* ----------------------------------------------------------- */
+
+/* Autenticacion de usuarios */ 
+const authRouter = new authRoutes()
+app.use('/login', authRouter.start())
 
 /* Productos */ 
 const productoRouter = new productoRoutes()
