@@ -27,10 +27,6 @@ app.use(express.urlencoded({ extended: true }));
 /*                     MANEJO DE RUTAS                         */
 /* ----------------------------------------------------------- */
 
-/* Autenticacion de usuarios */ 
-const authRouter = new authRoutes()
-app.use('/login', authRouter.start())
-
 /* Productos */ 
 const productoRouter = new productoRoutes()
 app.use('/productos',  productoRouter.start())
@@ -39,6 +35,11 @@ app.use('/productos',  productoRouter.start())
 /* Carritos */
 const carritoRouter = new carritoRoutes()
 app.use('/carrito', carritoRouter.start())
+
+
+/* Autenticacion de usuarios */ 
+const authRouter = new authRoutes()
+app.use('/login', authRouter.start())
 
 /* ----------------------------------------------------------- */ 
 /*                     SERVER LISTEN                           */

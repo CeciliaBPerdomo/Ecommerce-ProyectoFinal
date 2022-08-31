@@ -1,0 +1,2 @@
+Cambiar el token de Twilio, porque en el env me lo bloquean
+TWILIO_AUTH_TOKEN=62eaaabb2b1e7339328c89be4478edfb
